@@ -1,0 +1,39 @@
+---
+title: title
+subtitle: subtitle
+author: name
+date: 01.01.2099
+institute: department @ institution
+format:
+  revealjs:
+    theme: ./custom/themes/default.scss
+    transition: none
+    transition-speed: fast
+    slide-number: c
+    width: 1920
+    heigth: 1080
+    show-notes: false
+    html-math-method: katex
+    toc: false
+    menu: false
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 5
+      buttons: false
+    citation-hover: true
+    footnote-hover: true
+bibliography: ./ref.bib
+logo: ./custom/images/logo.png
+---
+
+## Introduction
+
+- List1
+- List2
+
+## Motivation
+
+::: middle
+Test
+:::
+

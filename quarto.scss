@@ -1,0 +1,176 @@
+/*-- scss:defaults --*/
+
+\$font-family-sans-serif: \"Noto Sans\";
+\$presentation-heading-font: \"Noto Sans\";
+
+\$body-color: #005aa0;
+\$body-bg: #e0eaf2;
+\$dark-blue: #0A2D6E;
+\$textindent: 48px;
+\$titlepadding: 8%;
+\$presentation-title-slide-text-align: left;
+
+/*-- scss:rules --*/
+
+/*********************************************
+ * Global Custom Settings
+ *********************************************/
+
+html {
+    font-size: 20pt;
+}
+
+.reveal .slides {
+
+    width: 85vw !important;
+    transform: none !important;
+    inset: 0 !important;
+
+    .present {
+        display: flex !important;
+        flex-flow: column !important;
+        justify-content: stretch !important;
+    }
+}
+
+/*********************************************
+ * Custom Title Slide
+ *********************************************/
+
+.reveal .quarto-title-block .quarto-title-authors {
+  display: flex;
+  justify-content: left;
+}
+
+.reveal .quarto-title-block .quarto-title-authors .quarto-title-author {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*********************************************
+ * Custom Settings
+ *********************************************/
+
+.reveal .footer {
+    width: calc(100vw - 2 * 5vw) !important;
+    max-width: calc(100% - 2 * 5vw) !important;
+    height: 2.5vh !important;
+    z-index: 10 !important;
+    background-color: \$body-color;
+    padding-top: 0.5rem;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 0.5rem;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0 !important;
+    position: fixed !important;
+}
+
+.reveal .slide-menu-button {
+    z-index: 11 !important;
+}
+
+.slide-logo {
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  right: 10px !important;
+  max-height: 7% !important;
+  height: 100% !important;
+  width: auto !important;
+  color: \$body-color !important;
+  padding: 0.5em;
+}
+
+.search-bar {
+    color: gray;
+    background: white;
+    font-size: 1rem;
+    border-radius: 1rem;
+    width: 50%;
+    margin: 1rem;
+    display: flex;
+    padding: 0.25rem;
+
+    p {
+        margin: 0;
+    }
+
+    img {
+        color: inherit !important;
+        height: 1rem;
+        margin: 0;
+        padding-left: 1rem;
+        padding-right: 0.5rem;
+    }
+}
+
+.reveal .slide-menu-button {
+    z-index: 11 !important;
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 0.32rem !important;
+  right: 25px !important;
+  top: unset !important;
+  color: #777777 !important;
+}
+
+.slide-number-a {
+    color: \$body-bg;
+    font-size: 21pt;
+}
+
+/*********************************************
+ * Custom Environments
+ *********************************************/
+
+blockquote {
+    display: block;
+    margin-left: 0;
+    color: \$dark-blue !important;
+    border-left: 0.25rem solid \$dark-blue !important;
+    padding-left: 0.25em;
+}
+
+/*********************************************
+ * Custom Styles
+ *********************************************/
+
+.columns {
+    display: flex !important;
+    height: 100% !important;
+
+    .column {
+        align-self: center;
+    }
+}
+
+.small {
+    font-size: 0.75rem;
+}
+
+.big {
+    font-size: 2rem;
+}
+
+.middle {
+    position: absolute; 
+    top:50%; 
+    left:50%; 
+    transform: translate(-50%, -50%);
+}
+
+.right {
+  float: left;
+  width: auto;
+  border: 0px solid #73AD21;
+  padding: 0px;
+}
+
