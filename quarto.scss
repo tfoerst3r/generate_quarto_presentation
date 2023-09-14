@@ -23,6 +23,7 @@ html {
 .reveal .slides {
 
     width: 85vw !important;
+    height: calc(100% - 5vw) !important;
     transform: none !important;
     inset: 0 !important;
 
