@@ -1,16 +1,20 @@
+/*===================*/
 /*-- scss:defaults --*/
+/*===================*/
 
-\$font-family-sans-serif: \"Noto Sans\";
-\$presentation-heading-font: \"Noto Sans\";
+$font-family-sans-serif: 'Noto Sans';
+$presentation-heading-font: 'Noto Sans';
 
-\$body-color: #005aa0;
-\$body-bg: #e0eaf2;
-\$dark-blue: #0A2D6E;
-\$textindent: 48px;
-\$titlepadding: 8%;
-\$presentation-title-slide-text-align: left;
+$body-color: #005aa0;
+$body-bg: #e0eaf2;
+$dark-blue: #0A2D6E;
+$textindent: 24px;
+$titlepadding: 8%;
+$presentation-title-slide-text-align: left;
 
+/*================*/
 /*-- scss:rules --*/
+/*================*/
 
 /*********************************************
  * Global Custom Settings
@@ -35,17 +39,34 @@ html {
 }
 
 /*********************************************
+ * Additional Settings for Default Envs.
+ *********************************************/
+
+h1::after {
+  content: '\00a0'; /* This represents the non-breaking space character */
+  font-weight: normal; /* Example styling */
+  color: #999; /* Example styling */
+}
+
+h2::after {
+  content: '\00a0'; /* This represents the non-breaking space character */
+  font-weight: normal; /* Example styling */
+  color: #999; /* Example styling */
+}
+
+h3::after {
+  content: '\00a0'; /* This represents the non-breaking space character */
+  font-weight: normal; /* Example styling */
+  color: #999; /* Example styling */
+}
+
+/*********************************************
  * Custom Title Slide
  *********************************************/
 
-.reveal .quarto-title-block .quarto-title-authors {
-  display: flex;
-  justify-content: left;
-}
-
-.reveal .quarto-title-block .quarto-title-authors .quarto-title-author {
-  padding-left: 0;
-  padding-right: 0;
+.reveal .quarto-title-block h1 {
+    padding-top: $titlepadding;
+    font-size: 2.8rem;
 }
 
 /*********************************************
@@ -57,7 +78,7 @@ html {
     max-width: calc(100% - 2 * 5vw) !important;
     height: 2.5vh !important;
     z-index: 10 !important;
-    background-color: \$body-color;
+    background-color: $body-color;
     padding-top: 0.5rem;
     padding-left: 5vw;
     padding-right: 5vw;
@@ -81,7 +102,7 @@ html {
   max-height: 7% !important;
   height: 100% !important;
   width: auto !important;
-  color: \$body-color !important;
+  color: $body-color !important;
   padding: 0.5em;
 }
 
@@ -124,8 +145,11 @@ html {
 }
 
 .slide-number-a {
-    color: \$body-bg;
-    font-size: 21pt;
+    position: absolute !important; 
+    top: 30%; 
+    transform: translate(0%, -50%);
+    color: $body-bg;
+    font-size: 0.8rem;
 }
 
 /*********************************************
@@ -135,13 +159,13 @@ html {
 blockquote {
     display: block;
     margin-left: 0;
-    color: \$dark-blue !important;
-    border-left: 0.25rem solid \$dark-blue !important;
+    color: $dark-blue !important;
+    border-left: 0.25rem solid $dark-blue !important;
     padding-left: 0.25em;
 }
 
 /*********************************************
- * Custom Styles
+ * Custom DIV Styles
  *********************************************/
 
 .columns {
@@ -154,18 +178,37 @@ blockquote {
 }
 
 .small {
-    font-size: 0.75rem;
+    font-size: 1.25rem;
 }
 
 .big {
     font-size: 2rem;
 }
 
+.bigger {
+    font-size: 2.2rem;
+}
+
+.biggest {
+    font-size: 2.4rem;
+}
+
+.superbiggest {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
 .middle {
     position: absolute; 
-    top:50%; 
-    left:50%; 
-    transform: translate(-50%, -50%);
+    top: 50%; 
+    width: 100%;
+    transform: translate(0%, -50%);
+}
+
+.centered {
+    position: relative; 
+    text-align: center;
+    width: 100%;
 }
 
 .right {
@@ -174,4 +217,22 @@ blockquote {
   border: 0px solid #73AD21;
   padding: 0px;
 }
+
+.left {
+  float: right;
+  width: auto;
+  border: 0px solid #73AD21;
+  padding: 0px;
+}
+
+iframe {
+    width: 71.43% !important;
+    height: 71.43% !important;
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    transfrom: translate(-50%, -50%);
+}
+  
 

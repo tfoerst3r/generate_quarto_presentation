@@ -59,4 +59,5 @@ venv.bak/
 # Temporary files
 *.sw?
 *.~*
+test.sh
 

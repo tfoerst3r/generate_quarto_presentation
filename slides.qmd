@@ -33,7 +33,26 @@ logo: ./custom/images/logo.png
 
 ## Motivation
 
+:::::: columns
+::: column
+<-- A -->
+:::
+
+::: column
+<-- B -->
+:::
+
+::::::
+
+##
+
 ::: middle
-Test
+A
+:::
+
+## 
+
+::: centered
+B
 :::
 

@@ -12,11 +12,17 @@ readme_file=readme.txt
 function_file=functions.sh
 main_file=main.sh
 
+
+
+
+
 #---------------------#
 name_qmd_script=qmd_script
 name_quarto_scss_script=quarto_scss_script
 name_readme=readme_content
 #---------------------#
+
+
 
 echo "#!/usr/bin/env bash
 
@@ -36,11 +42,15 @@ echo "$name_qmd_script=\"" >> $output
 cat $qmd_slide_file >> $output
 echo '"' >> $output
 echo '#-----------------------#' >> $output
-#---------------------#
-echo "$name_quarto_scss_script=\"" >> $output
-cat $scss_file >> $output
-echo '"' >> $output
 
+#--------------------------#
+#-- Add scss to the script
+#--------------------------#
+echo "$name_quarto_scss_script=\"" >> $output
+#-- replace $ with \$
+sed 's/\\/\\\\/g' $scss_file | sed 's/\$/\\\$/g' >> $output
+echo "\"" >> $output
+#--------------------------#
 
 echo "$name_readme=\"" >> $output
 cat $readme_file >> $output
