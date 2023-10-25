@@ -1,3 +1,5 @@
+#===== FUNCTIONS =====#
+
 function base_structure(){
 
 mkdir \
@@ -25,7 +27,7 @@ convert -size 100x60 xc:none -fill "#005aa0" -draw "rectangle 0,0 100,20 rectang
 
 touch ref.bib
 
-echo "$quarto_scss_script" > "$theme_folder/$quarto_scss_file"
+echo "$quarto_scss_script" > "$theme_folder/$file_quarto_scss"
 
 }
 
@@ -34,11 +36,10 @@ echo "$quarto_scss_script" > "$theme_folder/$quarto_scss_file"
 
 function slide_structure(){
 
-cd $folder_slides
 
 mkdir \
     images
-echo "$qmd_script" > $qmd_file
+echo "$qmd_script" > $file_qmd
 #-- structure of the custom folder
 custom_structure
 }
@@ -67,6 +68,7 @@ function argparser {
 while [ -n "$1" ]; do
   case $1 in
     -h        | --help  ) printhelp && exit 0 ;;
+                --solo  ) solo=true; shift ;;
     -*                  ) msg "unknown option (ignored): $1" && exit 1 ;;
     --                  ) shift; break ;;
     *                   ) break ;;
@@ -92,7 +94,8 @@ EXAMPLES:
   project pres --help
 
 OPTIONS:
- -h   --help           print help message and exit
+ -h   --help     print help message and exit
+      --solo     only the presentation structure
    
 DESCRIPTION: 
   ... 

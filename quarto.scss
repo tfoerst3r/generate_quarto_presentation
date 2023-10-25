@@ -8,9 +8,14 @@ $presentation-heading-font: 'Noto Sans';
 $body-color: #005aa0;
 $body-bg: #e0eaf2;
 $dark-blue: #0A2D6E;
-$textindent: 24px;
 $titlepadding: 8%;
 $presentation-title-slide-text-align: left;
+$heading1Size: 3.1rem;
+$heading2Size: 2.6rem;
+$heading3Size: 2.3rem;
+$heading4Size: 1.0rem;
+$mainFontSize: 1.8rem;
+
 
 /*================*/
 /*-- scss:rules --*/
@@ -19,11 +24,6 @@ $presentation-title-slide-text-align: left;
 /*********************************************
  * Global Custom Settings
  *********************************************/
-
-html {
-    font-size: 20pt;
-}
-
 .reveal .slides {
 
     width: 85vw !important;
@@ -66,7 +66,6 @@ h3::after {
 
 .reveal .quarto-title-block h1 {
     padding-top: $titlepadding;
-    font-size: 2.8rem;
 }
 
 /*********************************************
@@ -88,6 +87,9 @@ h3::after {
     align-items: center;
     bottom: 0 !important;
     position: fixed !important;
+    p {
+        font-size: 0.75rem;
+    }
 }
 
 .reveal .slide-menu-button {
@@ -235,4 +237,143 @@ iframe {
     transfrom: translate(-50%, -50%);
 }
   
+
+/*********************************************
+ * Boxes
+ *********************************************/
+div.attention, div.important, div.danger, div.error {
+    background-color: #fce8eb;
+    color: #d93025;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.caution, div.warning {
+    background-color: #feefe3;
+    color: #fa7b17;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+
+div.hint, div.tip {
+    background-color: #f3e8fd;
+    color: #a142f4;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.note {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.example {
+    background-color: #f5f5e9;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.tuf {
+    background-color: rgba(0,100,170,1);
+    color: #ffffff;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.geo {
+    background-color: #e08603;
+    color: #ffffff;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.material {
+    background-color: #23bae2;
+    color: #ffffff;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.energy {
+    background-color: #b5123e;
+    color: #ffffff;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.nature {
+    background-color: #1a962b;
+    color: #ffffff;
+    margin: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.blue {
+    background-color: rgba(0,100,170,0.55);
+    color: #2f3033;
+    margin: 1rem 0 1rem 0;
+    padding: 1.0rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.green {
+    background-color: rgba(26,150,43,0.70);
+    color: #2f3033;
+    margin: 1rem 0 1rem 0;
+    padding: 1.0rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.orange {
+    background-color: rgba(224,134,3,0.70);
+    color: #2f3033;
+    margin: 1rem 0 1rem 0;
+    padding: 1.0rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.red {
+    background-color: rgba(165,23,21,0.5);
+    color: #2f3033;
+    margin: 1rem 0 1rem 0;
+    padding: 1.0rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
+div.white {
+    background-color: #ffffff;
+    color: #2f3033;
+    margin: 1rem 0 1rem 0;
+    padding: 1.0rem;
+    border-radius: 0.5rem;
+    border-color: rgba(255,255,255,0);    
+}
+
 
