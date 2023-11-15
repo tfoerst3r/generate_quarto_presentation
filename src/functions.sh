@@ -8,6 +8,7 @@ mkdir \
     $folder_slides \
     d_orga
 echo "$readme_content" > README.md
+echo "$abstract_content" > ABSTRACT.md
 
 }
 
@@ -18,12 +19,12 @@ function custom_structure(){
 local theme_folder="custom/themes"
 local images_folder="custom/images"
 mkdir -p \
-    custom/fonts \
-    custom/plugins \
-    custom/templates \
-    $theme_folder \
-    $images_folder
-convert -size 100x60 xc:none -fill "#005aa0" -draw "rectangle 0,0 100,20 rectangle 0,40 100,60" $images_folder/logo.png
+  custom/fonts \
+  custom/plugins \
+  custom/templates \
+  $theme_folder \
+  $images_folder
+convert -size 100x60 xc:none -fill "#002864" -draw "rectangle 0,0 100,20 rectangle 0,40 100,60" $images_folder/logo.png
 
 touch ref.bib
 
@@ -33,10 +34,7 @@ echo "$quarto_scss_script" > "$theme_folder/$file_quarto_scss"
 
 #-----------------------#
 
-
 function slide_structure(){
-
-
 mkdir \
     images
 echo "$qmd_script" > $file_qmd
@@ -46,11 +44,15 @@ custom_structure
 
 #-----------------------#
 
-function msg() {
-    local scrname=$(basename "$0")
-    echo "$scrname: $1" >&2
+function generate_abstract {
+echo $abstract > $abstractfile
 }
 
+
+function msg() {
+local scrname=$(basename "$0")
+echo "$scrname: $1" >&2
+}
 
 #-----------------------#
 
@@ -59,10 +61,9 @@ function msg_not_empty {
     echo "-- Folder not empty! --------------"
     echo "-- Project will be NOT generate! --"
     echo "-----------------------------------"
-    exit 1
 }
 
-#---------------------#
+#-----------------------#
 
 function argparser {
 while [ -n "$1" ]; do
@@ -76,7 +77,7 @@ while [ -n "$1" ]; do
 done
 }
 
-#---------------------#
+#-----------------------#
 
 function printhelp() {
 cat <<-EOM

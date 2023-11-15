@@ -10,6 +10,5 @@ file_qmd=$2
 file_quarto_scss=$3
 solo=false
 
-
 #-----------------------#"
 

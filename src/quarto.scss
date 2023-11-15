@@ -1,3 +1,4 @@
+
 /*===================*/
 /*-- scss:defaults --*/
 /*===================*/
@@ -5,16 +6,19 @@
 $font-family-sans-serif: 'Noto Sans';
 $presentation-heading-font: 'Noto Sans';
 
-$body-color: #005aa0;
-$body-bg: #e0eaf2;
-$dark-blue: #0A2D6E;
+$body-color: #002864;
+$body-bg: #fff;
+$dark-blue: #002864;
 $titlepadding: 8%;
+$hrulerY: 3vw;
+$borderthickness: 2px;
+
 $presentation-title-slide-text-align: left;
-$heading1Size: 3.1rem;
-$heading2Size: 2.6rem;
-$heading3Size: 2.3rem;
+$heading1Size: 3.9rem;
+$heading2Size: 3.4rem;
+$heading3Size: 2.9rem;
 $heading4Size: 1.0rem;
-$mainFontSize: 1.8rem;
+$mainFontSize: 2.4rem;
 
 
 /*================*/
@@ -48,10 +52,26 @@ h1::after {
   color: #999; /* Example styling */
 }
 
+h2 {
+    min-height: $heading2Size !important; /**/
+    padding-bottom: calc(2 * $hrulerY + 1vw) !important;
+}
+
+h2::before {
+    content: '\00a0'; /* This represents the non-breaking space character */
+    font-weight: normal; /* Example styling */
+    color: #999; /* Example styling */
+}
+
 h2::after {
-  content: '\00a0'; /* This represents the non-breaking space character */
-  font-weight: normal; /* Example styling */
-  color: #999; /* Example styling */
+    content:'';
+    position: absolute;/**/
+    display:block;/**/
+    overflow: hidden;
+    width: 200%;
+    border:$borderthickness solid $body-color;
+    border-radius:2px;
+    transform: translate(-25%, $hrulerY);
 }
 
 h3::after {
@@ -147,11 +167,12 @@ h3::after {
 }
 
 .slide-number-a {
-    position: absolute !important; 
-    top: 30%; 
-    transform: translate(0%, -50%);
+    /*position: absolute !important; /**/
+    -webkit-transform: translate( 0%, -50% );
+    -moz-transform: translate( 0%, -50% );
+    transform: translate( 0%, -50% );
     color: $body-bg;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
 }
 
 /*********************************************
@@ -375,5 +396,7 @@ div.white {
     border-radius: 0.5rem;
     border-color: rgba(255,255,255,0);    
 }
+
+
 
 
