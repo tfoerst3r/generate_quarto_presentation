@@ -24,6 +24,7 @@ format:
     footnote-hover: true
 bibliography: ./ref.bib
 logo: ./custom/images/logo.png
+footer: "This is a footer"
 ---
 
 ## Introduction

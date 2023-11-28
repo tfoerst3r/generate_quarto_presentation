@@ -8,27 +8,38 @@ rootfolder=src
 
 #-- INPUT -------------------#
 template_qmd="./$rootfolder/slides.qmd"
-template_scss="./$rootfolder/quarto.scss"
+template_scss="./$rootfolder/hifis.scss"
 template_readme="./$rootfolder/template_README.md"
 template_abstract="./$rootfolder/template_ABSTRACT.md"
-function_file="./$rootfolder/functions.sh"
-
-
-#-- CONFIG ------------------#
-#TODO those variable names need to be manually adapted in functions.sh when changed
-folder_slides=c_slides
+file_function="./$rootfolder/functions.sh"
+folder_for_slides_name=c_slides
 file_qmd=index.qmd
-file_quarto_scss=default.scss
+file_quarto_scss_name=default.scss
 
-#---------------------#
+
+#-- VARIABLES ------------------#
+folder_slides_variable=folder_slides
+file_qmd_variable=file_qmd
+file_quarto_scss_variable=file_quarto_scss
+solo_variable=solo
+
 name_qmd_script=qmd_script
 name_quarto_scss_script=quarto_scss_script
 name_readme=readme_content
 name_abstract=abstract_content
 
+
 #==================================#
 #== (1) Add header to $output
-bash $rootfolder/header.sh $folder_slides $file_qmd $file_quarto_scss > $output
+#bash $rootfolder/header.sh $folder_slides $file_qmd $file_quarto_scss > $output
+
+cat $rootfolder/header.sh > $output
+echo "$folder_slides_variable=$folder_for_slides_name" >> $output
+echo "$file_qmd_variable=$file_qmd" >> $output
+echo "$file_quarto_scss_variable=$file_quarto_scss_name" >> $output
+echo "$solo_variable=false" >> $output
+echo '' >> $output
+echo '#-----------------------#' >> $output
 
 #==================================#
 #== (2) Add qmd base input to the script
@@ -67,7 +78,8 @@ echo '"' >> $output
 
 #==================================#
 #== (5) Add functions to the script
-cat $function_file >> $output
+cat $file_function >> $output
+sed -i "s/folder_slides/$folder_slides_variable/" $output
 
 #==================================#
 #== (6) Add main routine to the script
@@ -80,15 +92,15 @@ echo "
 argparser \$@
 
 if [ -z \"\$(ls -A .)\" ]; then
-  if [ "\$solo" = true ]; then
+  if [ "\$$solo_variable" = true ]; then
     
     slide_structure
-    echo \"\$readme_content\" > README.md
+    echo \"\$$name_readme\" > README.md
 
-  elif [ "\$solo" = false ]; then
+  elif [ "\$$solo_variable" = false ]; then
 
     base_structure
-    cd \$folder_slides
+    cd \$$folder_slides_variable
     slide_structure
 
   fi
