@@ -2,7 +2,8 @@
 title: title
 subtitle: subtitle
 author: name
-date: 01.01.2099
+date: 2023-11-30
+date-format: DD.MM.YYYY
 institute: department @ institution
 format:
   revealjs:
@@ -24,36 +25,45 @@ format:
     footnote-hover: true
 bibliography: ./ref.bib
 logo: ./custom/images/logo.png
-footer: "This is a footer"
+footer: 'This is a footer'
 ---
 
-## Introduction
 
+## Listing
+
+::: even
 - List1
 - List2
+:::
 
-## Motivation
+
+## Columns
 
 :::::: columns
 ::: column
-<-- A -->
+A
 :::
 
 ::: column
-<-- B -->
+::: centered
+B
+:::
 :::
 
 ::::::
 
-##
 
-::: middle
-A
+## Boxen
+
+:::::: even
+
+::: blue
+blue
 :::
 
-## 
-
-::: centered
-B
+::: green
+green
 :::
+
+::::::
 

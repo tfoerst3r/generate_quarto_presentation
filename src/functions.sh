@@ -29,6 +29,7 @@ convert -size 100x60 xc:none -fill "#002864" -draw "rectangle 0,0 100,20 rectang
 touch ref.bib
 
 echo "$quarto_scss_script" > "$theme_folder/$file_quarto_scss"
+echo "$quarto_scss_script_add" > "$theme_folder/$file_quarto_add_scss"
 
 }
 

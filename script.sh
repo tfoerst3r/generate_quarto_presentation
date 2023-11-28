@@ -3,28 +3,37 @@
 # SPDX-FileCopyrightText: Copyright (c) 2023 Thomas Foerster
 # SPDX-License-Identifier: MIT
 
+additional_scss=$1
+
+# TODO if empty then ...
+
+
 output=generate_quarto_presentation
 rootfolder=src
 
 #-- INPUT -------------------#
 template_qmd="./$rootfolder/slides.qmd"
-template_scss="./$rootfolder/hifis.scss"
+template_scss="./$rootfolder/default.scss"
+template_scss_additional="./$rootfolder/$additional_scss.scss"
 template_readme="./$rootfolder/template_README.md"
 template_abstract="./$rootfolder/template_ABSTRACT.md"
 file_function="./$rootfolder/functions.sh"
 folder_for_slides_name=c_slides
 file_qmd=index.qmd
 file_quarto_scss_name=default.scss
+file_quarto_scss_add_name=additional.scss
 
 
 #-- VARIABLES ------------------#
 folder_slides_variable=folder_slides
 file_qmd_variable=file_qmd
 file_quarto_scss_variable=file_quarto_scss
+file_quarto_scss_add_variable=file_quarto_add_scss
 solo_variable=solo
 
 name_qmd_script=qmd_script
 name_quarto_scss_script=quarto_scss_script
+name_quarto_scss_script_additional=quarto_scss_script_add
 name_readme=readme_content
 name_abstract=abstract_content
 
@@ -37,6 +46,7 @@ cat $rootfolder/header.sh > $output
 echo "$folder_slides_variable=$folder_for_slides_name" >> $output
 echo "$file_qmd_variable=$file_qmd" >> $output
 echo "$file_quarto_scss_variable=$file_quarto_scss_name" >> $output
+echo "$file_quarto_scss_add_variable=$file_quarto_scss_add_name" >> $output
 echo "$solo_variable=false" >> $output
 echo '' >> $output
 echo '#-----------------------#' >> $output
@@ -49,11 +59,18 @@ echo '"' >> $output
 echo '#-----------------------#' >> $output
 
 #==================================#
-#== (3.1) Add scss content to the script
+#== (3.1) Add base scss content to the script
 echo "$name_quarto_scss_script=\"\\" >> $output
 
-#-- (3.2) replace $ with \$
+#-- replace $ with \$
 sed 's/\\/\\\\/g' $template_scss | sed 's/\$/\\\$/g' >> $output
+echo "\"" >> $output
+
+#== (3.2) Add additional scss content to the script
+echo "$name_quarto_scss_script_additional=\"\\" >> $output
+
+#-- replace $ with \$
+sed 's/\\/\\\\/g' $template_scss_additional | sed 's/\$/\\\$/g' >> $output
 echo "\"" >> $output
 
 #==================================#
