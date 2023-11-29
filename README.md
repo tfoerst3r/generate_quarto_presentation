@@ -81,4 +81,4 @@ Available options are:
     └── ref.bib
     ```
     
-You could simply replace or adapt the `additional.scss` (or even the `default.scss`) file to your needs with your own settings. If you want to use a default `revealjs` template just simple change it in the Metablock in the `index.qmd` file. For more information on custom style sheets see [link](https://quarto.org/docs/presentations/revealjs/themes.html).
+You could simply replace or adapt the `additional.scss` or even the `default.scss` to your needs. If you want to use a default `revealjs` template just simple change it in the metablock in the `index.qmd` file. For more information on custom style sheets see [link](https://quarto.org/docs/presentations/revealjs/themes.html).
