@@ -4,9 +4,9 @@ The main purpose of this repo is to generate an executable shell script for quar
 
 # Installation
 
-The script `script.sh` creates a script `generation_quarto_presentation` which on the other hand will generate for you the folders and a file structure to get quickly started with your `quarto` presentation. This includes a custom style sheet and logo. To add more flexibility one additional scss file needs to be given besides your base template can be added. To be more flexible, the components of the script are stored in the `src`.
+The `script.sh` routine creates a script `generation_quarto_presentation` which on the other hand will generate for you the folders and a file structure to get quickly started with your `quarto` presentation. To improve the development of the script, I decided to split the generation process into individual input files, which can be added using your favorite IDE (like vscode for the scss files in the `src` folder). Two custom `scss` files, the base `default.scss` and a second, based on `default.scss`, allow you to do minor adaptions to gain the necessary changes.
 
-**Syntax**
+ **Syntax**
 
 ```
 $> ./script.sh [name of your additional scss file]
@@ -18,7 +18,7 @@ $> ./script.sh [name of your additional scss file]
 $> ./script.sh hifis
 ```
 
-Second, you can move the generated file by utilizing the `mv` bash routine,  (default file name is `generate_quarto_presentation`) to a location part of the `$PATH` variable, most likely `~/bin`. You can check the content of the `$PATH` variable by using
+Second, you can move the generated file by utilizing the `mv` bash routine (default file name is `generate_quarto_presentation`, which can be changed in `script.sh`) to a location part of the `$PATH` variable, most likely `~/bin`. You can check the content of the `$PATH` variable by using
 
 ```
 $ echo $PATH
@@ -32,6 +32,7 @@ $> mv generate_quarto_presentation ~/bin/
 
 # Usage of the bash script `generate_quarto_presentation`
 
+`generate_quarto_presentation` generates the structure for a custom quarto presentation out of the box. This includes a custom style sheet and logo.
 **Syntax**
 
 ```
