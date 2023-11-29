@@ -69,9 +69,9 @@ Available options are:
     .
     ├── custom
     │   ├── fonts
-    |   ├── images
-    |   └── logo.png
-    |   ├── plugins
+    │   ├── images
+    │   │   └── logo.png
+    │   ├── plugins
     │   ├── templates
     │   └── themes
     │       ├── additional.scss
