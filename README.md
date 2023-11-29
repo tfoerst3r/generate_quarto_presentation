@@ -65,20 +65,20 @@ Available options are:
 - `-h   --help` Help output
 - `--solo` generates just the presentation structure
 
-    ```
+    ```bash
     .
     ├── custom
     │   ├── fonts
-    |   ├── images
-    |   |   └── logo.png
-    |   ├── plugins
+    |   ├── images
+    |   └── logo.png
+    |   ├── plugins
     │   ├── templates
-    │   └── themes
-    │       ├── additional.scss
-    │       └── default.scss
+    │   └── themes
+    │       ├── additional.scss
+    │       └── default.scss
     ├── images
-    ├── index.qmd
-    └── ref.bib
+    ├── index.qmd
+    └── ref.bib
     ```
-
+    
 You could simply replace or adapt the `additional.scss` (or even the `default.scss`) file to your needs with your own settings. If you want to use a default `revealjs` template just simple change it in the Metablock in the `index.qmd` file. For more information on custom style sheets see [link](https://quarto.org/docs/presentations/revealjs/themes.html).
