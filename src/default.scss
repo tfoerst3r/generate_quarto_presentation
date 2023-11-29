@@ -205,15 +205,6 @@ h3::after {
     padding-left: 2rem;
 }
 
-.columns {
-    display: flex !important;
-    height: 100% !important;
-
-    .column {
-        align-self: center;
-    }
-}
-
 .small {
     font-size: calc(0.85 * $mainFontSize);
 }
