@@ -4,7 +4,9 @@ The main purpose of this repo is the make the generation of a default template p
 
 # Installation
 
-Those files build a bash script, which creates folders and a file structure to get started with your `quarto` presentation, incl. a custom style sheet and logo. To add more flexibility one additional scss file needs to be given besides your base template can be added. 
+The script `script.sh` creates a script `generation_quarto_presentation` which on the other hand will generate for you the folders and a file structure to get quickly started with your `quarto` presentation. This includes a custom style sheet and logo. To add more flexibility one additional scss file needs to be given besides your base template can be added. To be more flexible, the components of the script are stored in the `src`.
+
+**Syntax**
 
 ```
 $> ./script.sh [name of your additional scss file]
@@ -16,7 +18,7 @@ $> ./script.sh [name of your additional scss file]
 $> ./script.sh hifis
 ```
 
-Second, you should mv the generated file (default file name is `generate_quarto_presentation`) in a location which is part of the `$PATH` variable, most likely `~/bin`.
+Second, you should mv the generated file (default file name is `generate_quarto_presentation`) in a location which is part of the `$PATH` variable, most likely `~/bin`. You can check your content of the `$PATH` variable by using `echo` (`$ echo $PATH`).
 
 **Example of the valid location on your Linux system**
 
@@ -79,4 +81,4 @@ Available options are:
     └── ref.bib
     ```
 
-You could simply replace the `additional.scss` with your own settings.    
+You could simply replace or adapt the `additional.scss` (or even the `default.scss`) file to your needs with your own settings. If you want to use a default `revealjs` template just simple change it in the Metablock in the `index.qmd` file. For more information on custom style sheets see [link](https://quarto.org/docs/presentations/revealjs/themes.html).
