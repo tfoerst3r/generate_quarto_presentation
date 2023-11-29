@@ -18,7 +18,11 @@ $> ./script.sh [name of your additional scss file]
 $> ./script.sh hifis
 ```
 
-Second, you should mv the generated file (default file name is `generate_quarto_presentation`) in a location which is part of the `$PATH` variable, most likely `~/bin`. You can check your content of the `$PATH` variable by using `echo` (`$ echo $PATH`).
+Second, you can move the generated file by utilizing the `mv` bash routine,  (default file name is `generate_quarto_presentation`) to a location part of the `$PATH` variable, most likely `~/bin`. You can check the content of the `$PATH` variable by using
+
+```
+$ echo $PATH
+```
 
 **Example of the valid location on your Linux system**
 
