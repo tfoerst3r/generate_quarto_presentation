@@ -271,18 +271,21 @@ h3::after {
 }
 
 iframe {
+    display: flex; /*flex;*/
+    flex-direction: column;
+    justify-content: center;
     width: 71.43% !important;
     height: 71.43% !important;
     -webkit-transform: scale(1.4);
     transform: scale(1.4);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
-    transform: translate(-50%, -50%);
 }
   
 
 /*********************************************
  * Boxes
+    transform: translate(50%, 0%);
  *********************************************/
 
 %white {
@@ -337,3 +340,4 @@ iframe {
     background-color: #ed4c31;
     color: #2f3033;
 }
+
