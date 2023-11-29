@@ -1,6 +1,6 @@
 # Introduction
 
-The main purpose of this repo is the make the generation of a default template project generator for quarto presentations, with an emphasis on top-row presentations (more PowerPoint-like).
+The main purpose of this repo is to generate an executable shell script for quarto presentations, with an emphasis on top-row presentations (more PowerPoint-like). The `generate_quarto_presentation` script itself is explained below.
 
 # Installation
 
@@ -26,7 +26,7 @@ Second, you should mv the generated file (default file name is `generate_quarto_
 $> mv generate_quarto_presentation ~/bin/
 ```
 
-# Usage of the bash script
+# Usage of the bash script `generate_quarto_presentation`
 
 **Syntax**
 
