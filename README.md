@@ -1,6 +1,6 @@
 # Introduction
 
-The main purpose of this repo is to generate an executable shell script for quarto presentations, with an emphasis on top-row presentations (more PowerPoint-like). The `generate_quarto_presentation` script itself is explained below.
+The main purpose of this repo is to generate an executable shell script for quarto presentations, with an emphasis on top-row presentations (more PowerPoint-like). The generated script is per default named `generate_quarto_presentation`. It will generate a project structure including all the needed files to get started with your quarto presentation right away.
 
 # Installation
 
