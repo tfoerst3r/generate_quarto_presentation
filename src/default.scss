@@ -233,14 +233,6 @@ h3::after {
     transform: translate(0%, -50%);
 }
 
-.even {
-  display: flex; /*flex;*/
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  height: calc(100% - $heightoffset - (2 * $hrulerY ) - $footerheight) !important;
-}
-
 .centered {
     position: relative; 
     text-align: center;
