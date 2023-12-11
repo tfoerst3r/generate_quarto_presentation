@@ -45,7 +45,8 @@ import numpy as np
 - my notes
 :::
 
-::: ----slide----
+::: {.slide .vertical-spaced-even} 
+
 :::::: columns
 ::::: column
 
@@ -71,22 +72,71 @@ This is a definition text.
 
 ::::::
 
+
+::: red
+This is a test.
+:::
+
+::: green
+This is another test.
+:::
+
+
+
+
 <!-- ----slide end---- -->
 :::
 
+## `DIV` environment
 
-## Citations
+::: {.centered style="height: max-content;"}
+Pythagorean theorem
 
+$$c^2 = a^2 + b^2$$
+:::
 
-::: {.middle .slideheight}
+::: small-space
+:::
 
-::: quote
+:::::: columns
+::::: column
+
+``` toml
+[tool.poetry]
+name = "my-project"
+version = "0.1.0"
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+```
+:::::
+
+::::: column
+::: middlepoint
+
+::: {.quote style="width:max-content; padding-right:2rem"}
 This is a quote[^1]
 :::
 
+:::
+:::::
+::::::
+
+::: space 
+:::
+
+::: quote
+This is my favorite citation.
 :::
 
 <!-- Footnotes -->
 [^1]: here you can reference your citation, you may use the \@ syntax
 
 ## References
+
