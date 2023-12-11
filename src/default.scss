@@ -2,52 +2,48 @@
 /*-- scss:defaults --*/
 /*===================*/
 
+/*-- Font --*/
 $font-family-sans-serif: 'Noto Sans';
 $presentation-heading-font: 'Noto Sans';
 
+$presentation-font-size-root: 2.2rem;
+$presentation-h3-font-size: calc(1.25 * $presentation-font-size-root);
+$presentation-h2-font-size: calc(1.50 * $presentation-font-size-root);
+$presentation-h1-font-size: calc(1.75 * $presentation-font-size-root);
+
+/*-- Presentation --*/
+$presentation-slide-text-align: left;
+$presentation-title-slide-text-align: left;
+
+/*-- Colors --*/
 $body-color: #002864;
 $body-bg: #ffffff;
 
+/*-- Custom Colors --*/
 $darkblue: #002864;
 $lightblue: #cdd8ec;
 $helmholtzblue: #005aa0;
+
+/*-- Title Page --*/
 $titlepadding: 8%;
-$hrulerY: 3.5vw;
-$borderthickness: 2px;
-$heightoffset: 5vw;
-$footerheight: 1.8vw;
-$slideverticaloffset: 6vw;
+
+/*-- General Sizing --*/
+$hrulerY: 5.0vh;
+$borderthickness: 2px; /* border of the horizontal line, take it 2x */
+$heightoffset: 6.0vh; /* approximated space of the top head */
+$indentdX: 5vw;
+$offset-factor: 2.0; /* should be 2 */
+
+/*-- Footer --*/
 $footerpadding: 0.5rem;
-$rightpadding: 25px;
-$presentation-title-slide-text-align: left;
-$mainFontSize: 2.4rem;
-$heading3Size: calc(1.20 * $mainFontSize);
-$heading2Size: calc(1.40 * $mainFontSize);
-$heading1Size: calc(1.60 * $mainFontSize);
-$backgroundimagedir:'../../../../../custom/images/';
+$footerheight: 3.1vh;
 
-@mixin backgroundimage($filename, $position: bottom right, $width:100vw, $opacity: 00, $margin: 0) {
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #{$body-bg}#{$opacity};
-    z-index: 1; // Adjust the stacking order as needed
-  }
-  
-  background: {
-    image: url(#{$backgroundimagedir}#{$filename});
-    position: $position;
-    repeat: no-repeat;
-    size: $width auto;
-  }
-  margin: $margin;
+/*-- Logo --*/
+$logo-top: 2.0vh;
 
-}
+/*-- Resulting Sizes --*/
+$max-slide-height: calc(100vh - $heightoffset - $offset-factor * $hrulerY - $footerheight - $presentation-h2-font-size);
+$slide-top: calc($offset-factor * $hrulerY + $heightoffset + 2 * $borderthickness);
 
 /*********************************************
  * Imports
@@ -57,40 +53,83 @@ $backgroundimagedir:'../../../../../custom/images/';
 /*********************************************
  * Global Custom Settings
  *********************************************/
-.reveal .slides {
+%vertical-spaced-even {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-evenly;
+    height: 100% !important;
+    max-height: $max-slide-height;
+}
 
-    width: calc(100% - 2*$slideverticaloffset) !important;
-    height: calc(100% - $heightoffset) !important;
+%white {
+    display: flex; /*flex;*/
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    color: $darkblue;
+    margin: 0.6rem 0 0.6rem 0;
+    padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+    border: 0 solid $body-color !important;
+    border-radius: 1.0rem;
+    border-color: #00000000; 
+    p {
+        margin: 0;
+        padding:0 0.5rem 0 0.5rem ;
+    }
+}
+
+.reveal .slides {
+    width: calc(100vw - 2*$indentdX) !important;
+    height: calc(100vh - $heightoffset) !important;
     transform: none !important;
     inset: 0 !important;
-
     .present {
-        /* display: flex !important; */
+        display: flex !important;
         flex-flow: column !important;
         justify-content: stretch !important;
         flex-direction: column;
     }
+
 }
+
+.slide {
+    width: 100%;
+    height: $max-slide-height
+}
+
+.slide-height {
+    max-height: $max-slide-height !important;
+    min-height: $max-slide-height !important;
+}
+
 
 /*********************************************
  * Additional Settings for Default Envs.
  *********************************************/
 
-h1::after {
+h1::before {
   content: '\00a0'; /* This represents the non-breaking space character */
   font-weight: normal; /* Example styling */
   color: #999; /* Example styling */
 }
 
+
 h2 {
-    min-height: $heading2Size !important; /**/
-    padding-bottom: calc(2 * $hrulerY) !important;
+    padding-bottom: calc(1.5 * $hrulerY) !important;
 }
 
 h2::before {
     content: '\00a0'; /* This represents the non-breaking space character */
     font-weight: normal; /* Example styling */
     color: #999; /* Example styling */
+}
+
+.reveal .slides section.smaller h2 {
+    font-size: $presentation-h2-font-size
+}
+
+.reveal .slides section.smaller h2::after {
+    border: 0 solid $body-color;
 }
 
 h3::after {
@@ -103,8 +142,20 @@ h3::after {
  * Custom Title Slide
  *********************************************/
 
-.reveal .quarto-title-block h1 {
-    padding-top: $titlepadding;
+.reveal .quarto-title-block {
+    
+    h1 {
+        padding-top: $titlepadding;
+    }
+    
+    h1::after {
+        border: 0 solid $body-color;
+    }
+    
+    h1::before {
+        content: '';
+    }
+
 }
 
 /*********************************************
@@ -117,7 +168,7 @@ h3::after {
     z-index: 10 !important;
     background-color: $body-color;
     padding-top: $footerpadding;
-    padding-left: $slideverticaloffset;
+    padding-left: $indentdX;
     padding-bottom: $footerpadding;
     display: flex !important;
     justify-content: space-between;
@@ -134,15 +185,12 @@ h3::after {
     z-index: 11 !important;
 }
 
-
 .slide-logo {
-  top: 2vw;
-  right: 2*$rightpadding;
-  display: flex;
   position: absolute !important;
-  justify-content: center;
   display: block !important;
-  max-height: 8vh !important;
+  top: $logo-top !important;
+  right: calc($indentdX/3) !important;
+  max-height: 9% !important;
   width: auto !important;
   color: $body-bg !important;
   margin: 0 !important;
@@ -150,7 +198,7 @@ h3::after {
 
 .search-bar {
     color: gray;
-    background-color: white;
+    background: white;
     font-size: 1rem;
     border-radius: 1rem;
     width: 50%;
@@ -175,12 +223,38 @@ h3::after {
     z-index: 11 !important;
 }
 
+.panel-tabset {
+    a {
+        color: $body-color;
+        background-color: #bbb;
+        padding: 0.75rem;
+        margin: 0.75rem;
+        border: thick solid $body-color;
+        border-radius: 0.75rem;
+    }
+    
+    .panel-tabset-tabby {
+        border: 0;
+    }
+    
+    .panel-tabset-tabby::after {
+        content:'';
+        position: absolute;
+        display: block;
+        width: 100%;
+        border: 0 solid $body-color;
+        border-radius:1px;
+        transform: translate(0, 1px);
+    }
+
+}
+
 /*********************************************
  * Slide Number
  *********************************************/
 
 .slide-number {
-  right: $rightpadding !important;
+  margin-right: calc($indentdX/3);
   top: unset !important;
   bottom: calc($footerpadding + 0.75 * 3px) !important;
   color: $body-bg;
@@ -196,47 +270,44 @@ h3::after {
  *********************************************/
 
 .quote {
-    display: block;
+    display: block !important;
     margin: 1vh 0 1vh 0;
-    color: $body-color !important;
+    color: $darkblue !important;
     background-color: #cdd8ec;
     border-radius:2px;
     border-left: 0.5rem solid $body-color !important;
     padding-left: 2rem;
+    p {
+        display: inherit;
+    }
 }
 
-.small {
-    font-size: calc(0.85 * $mainFontSize);
-}
-
-.big {
-    font-size: calc(1.15 * $mainFontSize);
-}
-
-.bigger {
-    font-size: calc(1.30 * $mainFontSize);
-}
-
-.biggest {
-    font-size: calc(1.45 * $mainFontSize);
-}
-
-.superbiggest {
-    font-size: 2.4rem;
-    font-weight: bold;
-}
-
-.middle {
-    position: absolute; 
-    top: 50%; 
-    width: 100%;
-    transform: translate(0%, -50%);
+.middlepoint {
+    max-height: $max-slide-height;
+    p{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .centered {
-    position: relative; 
-    text-align: center;
+    p{
+        display: flex;
+        width: 100%;
+        max-height: $max-slide-height;
+        justify-content: center;
+    }
+}
+
+.middle {
+    display: flex;
     width: 100%;
+    height: 100%;
+    max-height: $max-slide-height;
+    align-items: center;
 }
 
 .right {
@@ -254,33 +325,19 @@ h3::after {
 }
 
 iframe {
-    display: flex; /*flex;*/
-    flex-direction: column;
-    justify-content: center;
     width: 71.43% !important;
     height: 71.43% !important;
     -webkit-transform: scale(1.4);
     transform: scale(1.4);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
+    transform: translate(-50%, -50%);
 }
   
 
 /*********************************************
  * Boxes
-    transform: translate(50%, 0%);
  *********************************************/
-
-%white {
-    display: block;
-    background-color: white;
-    color: $body-color;
-    margin: 1rem 0 1rem 0;
-    padding: 0.6rem 1.0rem 0.6rem 1.0rem;
-    border: thin solid $body-color !important;
-    border-radius: 1.0rem;
-    border-color: #ffffffff; 
-}
 
 .white {
     @extend %white;
@@ -289,21 +346,13 @@ iframe {
 .lightblue {
     @extend %white;
     background-color: $lightblue;
-    color: $body-color;
+    color: $darkblue;
 }
 
 .blue {
     @extend %white;
-    background-color: $body-color;
+    background-color: $darkblue;
     color: $lightblue;
-    
-    .lightblue {
-        @extend %white;
-        margin: .25rem 0 .25rem 0;
-        border-radius: 0.5rem;
-        border: 0px solid #ffffffff !important;
-    };
-    
 }
 
 .green {
@@ -323,4 +372,56 @@ iframe {
     background-color: #ed4c31;
     color: #2f3033;
 }
+
+.horizontal-spaced-even {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.vertical-spaced-even {
+    @extend %vertical-spaced-even;
+}
+
+.tab-disabled {
+    width: max-content;
+    p {
+        background-color: #aaa; 
+        border-radius:0.5rem;
+        padding: 0.5rem;
+    }
+}
+
+.tab-active {
+    width: max-content;
+    p {
+        background-color: $body-bg; 
+        border: 1px solid $body-color; 
+        border-radius: 0.5rem; 
+        padding: 0.5rem;
+    }
+}
+
+.columns {
+    margin-top: 0 !important;
+    display: flex !important;
+    justify-content: space-evenly;
+    
+    .column {
+        align-self: center;
+    }
+}
+
+.small-space {
+    margin-top: 2vh;
+}
+.space {
+    margin-top: 6vh;
+}
+.big-space {
+    margin-top: 12vh;
+}
+
+
+
 

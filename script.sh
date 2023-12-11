@@ -3,18 +3,27 @@
 # SPDX-FileCopyrightText: Copyright (c) 2023 Thomas Foerster
 # SPDX-License-Identifier: MIT
 
-additional_scss=$1
-
-# TODO if empty then ...
-
+#-- USER INPUT --------------#
 
 output=generate_quarto_presentation
 rootfolder=src
+additional_scss=$1
+
+#----------------------------#
+
+if [ -z "$additional_scss" ];
+then
+    template_scss_additional="./$rootfolder/empty.scss"
+else
+    basename $additional_scss .scss
+    template_scss_additional="./$rootfolder/$additional_scss.scss"
+
+    fiadditional_scss=$1
+fi
 
 #-- INPUT -------------------#
 template_qmd="./$rootfolder/slides.qmd"
 template_scss="./$rootfolder/default.scss"
-template_scss_additional="./$rootfolder/$additional_scss.scss"
 template_readme="./$rootfolder/template_README.md"
 template_abstract="./$rootfolder/template_ABSTRACT.md"
 file_function="./$rootfolder/functions.sh"
@@ -54,7 +63,7 @@ echo '#-----------------------#' >> $output
 #==================================#
 #== (2) Add qmd base input to the script
 echo "$name_qmd_script=\"\\" >> $output
-cat $template_qmd >> $output
+sed 's/\\/\\\\/g' $template_qmd | sed 's/\$/\\\$/g' | sed 's/`/\\`/g' >> $output
 echo '"' >> $output
 echo '#-----------------------#' >> $output
 

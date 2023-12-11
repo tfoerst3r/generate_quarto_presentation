@@ -2,7 +2,7 @@
 title: title
 subtitle: subtitle
 author: name
-date: 2023-11-30
+date: 2099-02-29
 date-format: DD.MM.YYYY
 institute: department @ institution
 format:
@@ -31,39 +31,58 @@ footer: 'This is a footer'
 
 ## Listing
 
-::: even
-- List1
-- List2
+- Answer A
+- $A = \frac{1}{x}$
+
+``` python
+import numpy as np
+```
+
+
+## Columns and Boxes
+
+::: notes
+- my notes
 :::
 
-
-## Columns
-
+::: ----slide----
 :::::: columns
-::: column
-A
-:::
-
-::: column
-::: centered
-B
-:::
-:::
-
-::::::
-
-
-## Boxen
-
-:::::: even
+::::: column
 
 ::: blue
-blue
+
+::: white
+Definition A
 :::
 
-::: green
-green
+::: blue
+This is a definition text.
 :::
+
+:::
+:::::
+
+::::: column
+
+::: middlepoint
+![](./custom/images/logo.png)
+:::
+:::::
 
 ::::::
 
+<!-- ----slide end---- -->
+:::
+
+
+## Citations
+
+::: quote
+This is a quote[^1]
+:::
+
+
+<!-- Footnotes -->
+[^1]: here you can reference your citation, you may use the \@ syntax
+
+## References
