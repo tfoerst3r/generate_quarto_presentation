@@ -77,10 +77,14 @@ This is a definition text.
 
 ## Citations
 
+
+::: {.middle .slideheight}
+
 ::: quote
 This is a quote[^1]
 :::
 
+:::
 
 <!-- Footnotes -->
 [^1]: here you can reference your citation, you may use the \@ syntax

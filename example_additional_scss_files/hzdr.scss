@@ -20,8 +20,11 @@ $body-bg: #ffffff;
         z-index: 0; // Adjust the stacking order as needed
     }
 
-.quarto-title-block {
-        @include backgroundimage('logo_dresden-concept.svg', calc(100% - $rightpadding) calc(100% - 3.0 * $footerpadding - $footerheight), 12vw );
-}
+    .quarto-title-block {
+        @include backgroundimage(
+            'logo_dresden-concept.svg', 
+            calc(100% - $rightpadding) calc(100% - 3.0 * $footerpadding - $footerheight), 12vw 
+        );
+    }
 }
 
