@@ -24,7 +24,7 @@ format:
     citation-hover: true
     footnote-hover: true
 bibliography: ./ref.bib
-logo: ./custom/images/logo_HZDR.svg
+logo: ./custom/images/logo.png
 footer: 'This is a footer'
 ---
 
