@@ -7,6 +7,7 @@ $body-bg: #ffffff;
 
 .backgrounds {
     
+    /*-- orange square --*/
     &::before {
         content: '';
         position: absolute;
@@ -17,14 +18,21 @@ $body-bg: #ffffff;
         width: 3vw;
         height: 3vw;
         background-color: #f0781e;
-        z-index: 0; // Adjust the stacking order as needed
+        z-index: 11; // layer
     }
-
+    
+    /*-- custom title layout --*/
+    .quarto-title-block {
+        @include backgroundimage('logo_dresden-concept_1080p.svg');
+    }
+    /*
     .quarto-title-block {
         @include backgroundimage(
             'logo_dresden-concept.svg', 
             calc(100% - $rightpadding) calc(100% - 3.0 * $footerpadding - $footerheight), 12vw 
         );
     }
+    */
+
 }
 

@@ -45,10 +45,37 @@ $logo-top: 2.0vh;
 $max-slide-height: calc(100vh - $heightoffset - $offset-factor * $hrulerY - $footerheight - $presentation-h2-font-size);
 $slide-top: calc($offset-factor * $hrulerY + $heightoffset + 2 * $borderthickness);
 
+/*--Paths--*/
+$backgroundimagedir:'../../../../../custom/images/';
+
+/*-- Custom Background images --*/
+@mixin backgroundimage($filename, $position: bottom right, $width:100vw, $opacity: 00, $margin: 0) {
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #{$body-bg}#{$opacity};
+    z-index: 1; // Adjust the stacking order as needed
+  }
+  
+  background: {
+    image: url(#{$backgroundimagedir}#{$filename});
+    position: $position;
+    repeat: no-repeat;
+    size: $width auto;
+  }
+  margin: $margin;
+}
+
 /*********************************************
  * Imports
  *********************************************/
-@import './additional.scss';
+
+@import "./additional.scss";
 
 /*********************************************
  * Global Custom Settings
@@ -66,7 +93,7 @@ $slide-top: calc($offset-factor * $hrulerY + $heightoffset + 2 * $borderthicknes
     flex-direction: column;
     justify-content: center;
     background-color: white;
-    color: $darkblue;
+    color: $body-color;
     margin: 0.6rem 0 0.6rem 0;
     padding: 0.6rem 0.6rem 0.6rem 0.6rem;
     border: 0 solid $body-color !important;
@@ -175,6 +202,7 @@ h3::after {
     align-items: center;
     bottom: 0 !important;
     position: fixed !important;
+    z-index: -2 !important;
     
     p {
         font-size: 100%;
@@ -186,14 +214,15 @@ h3::after {
 }
 
 .slide-logo {
-  position: absolute !important;
-  display: block !important;
-  top: $logo-top !important;
-  right: calc($indentdX/3) !important;
-  max-height: 9% !important;
-  width: auto !important;
-  color: $body-bg !important;
-  margin: 0 !important;
+    position: absolute !important;
+    display: block !important;
+    top: $logo-top !important;
+    right: calc($indentdX/3) !important;
+    max-height: 9% !important;
+    width: auto !important;
+    color: $body-bg !important;
+    margin: 0 !important;
+    z-index: -1 !important;
 }
 
 .search-bar {
@@ -254,15 +283,16 @@ h3::after {
  *********************************************/
 
 .slide-number {
-  margin-right: calc($indentdX/3);
-  top: unset !important;
-  bottom: calc($footerpadding + 0.75 * 3px) !important;
-  color: $body-bg;
+    margin-right: calc($indentdX/3);
+    top: unset !important;
+    bottom: calc($footerpadding + 0.75 * 3px) !important;
+    color: $body-bg;
+    z-index: -1 !important;
 
-  .slide-number-a {
-    font-size: calc($footerheight - 2 * $footerpadding);
-    
-  }
+    .slide-number-a {
+      font-size: calc($footerheight - 2 * $footerpadding);
+      
+    }
 }
 
 /*********************************************
@@ -272,8 +302,8 @@ h3::after {
 .quote {
     margin: 1vh 0 1vh 0;
     width: 100%;
-    color: $darkblue !important;
-    background-color: #cdd8ec;
+    color: $body-color !important;
+    background-color: $lightblue;
     border-radius:2px;
     border-left: 0.5rem solid $body-color !important;
     padding-left: 2rem;
@@ -350,7 +380,7 @@ iframe {
 
 .blue {
     @extend %white;
-    background-color: $darkblue;
+    background-color: $body-color;
     color: $lightblue;
 }
 
@@ -420,6 +450,7 @@ iframe {
 .big-space {
     margin-top: 12vh;
 }
+
 
 
 

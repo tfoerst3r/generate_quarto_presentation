@@ -24,7 +24,7 @@ format:
     citation-hover: true
     footnote-hover: true
 bibliography: ./ref.bib
-logo: ./custom/images/logo.png
+logo: ./custom/images/logo_HZDR.svg
 footer: 'This is a footer'
 ---
 
@@ -89,10 +89,10 @@ This is another test.
 
 ## `DIV` environment
 
-::: {.centered style="height: max-content;"}
-Pythagorean theorem
+::: {.centered style='height: max-content;'}
+Geometric mean theorem
 
-$$c^2 = a^2 + b^2$$
+$$h = \sqrt{ p \cdot q}$$
 :::
 
 ::: small-space
@@ -103,24 +103,24 @@ $$c^2 = a^2 + b^2$$
 
 ``` toml
 [tool.poetry]
-name = "my-project"
-version = "0.1.0"
-license = "MIT"
-readme = "README.md"
+name = 'my-project'
+version = '0.1.0'
+license = 'MIT'
+readme = 'README.md'
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = '^3.11'
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ['poetry-core']
+build-backend = 'poetry.core.masonry.api'
 ```
 :::::
 
 ::::: column
 ::: middlepoint
 
-::: {.quote style="width:max-content; padding-right:2rem"}
+::: {.quote style='width:max-content; padding-right:2rem'}
 This is a quote[^1]
 :::
 
@@ -139,4 +139,5 @@ This is my favorite citation.
 [^1]: here you can reference your citation, you may use the \@ syntax
 
 ## References
+
 
