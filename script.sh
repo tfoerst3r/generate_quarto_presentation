@@ -7,16 +7,17 @@
 
 output=generate_quarto_presentation
 rootfolder=src
+addscssfolder=additional_scss_files
 additional_scss=$1
 
 #----------------------------#
 
 if [ -z "$additional_scss" ];
 then
-    template_scss_additional="./$rootfolder/empty.scss"
+    template_scss_additional="./$rootfolder/$addscssfolder/empty.scss"
 else
-    basename $additional_scss .scss
-    template_scss_additional="./$rootfolder/$additional_scss.scss"
+    base_scss=$(basename $additional_scss .scss)
+    template_scss_additional="./$rootfolder/$addscssfolder/$base_scss.scss"
 
     fiadditional_scss=$1
 fi
