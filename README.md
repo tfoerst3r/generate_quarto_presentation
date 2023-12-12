@@ -2,13 +2,13 @@
 
 The main purpose of this repo is to generate an executable shell script which on the other hand generates a ready-to-use structure for a quarto presentations. The emphasis is on top-row presentations (PowerPoint-like). 
 
-The generated script is per default named `generate_quarto_presentation`. It will build a project structure including all the needed files included in the `src` folder (for easier adjustments).
+The generated script is per default named `generate_quarto_presentation`. It will build a project structure including all the needed files.
 
 # Installation
 
-The `script.sh` routine creates a script `generation_quarto_presentation` which on the other hand will generate for you the folders and a file structure to get quickly started with your `quarto` presentation. To improve the development of the script, I decided to split the generation process into individual input files, which can be added using your favorite IDE (like vscode for the scss files in the `src` folder). Two custom `scss` files, the base `default.scss` and a second, based on `default.scss`, allow you to do minor adaptions to gain the necessary changes. When left empty it will use the default `emptry.scss` file.
+The `script.sh` routine creates a script `generation_quarto_presentation` which on the other hand will generate for you the folders and a file structure to get quickly started with your `quarto` presentation. To improve the development of the script, I decided to split the generation process into individual input files, which can be added using your favorite IDE (like vscode for the scss files in the `src` folder). Two custom `scss` files, the base `default.scss` and a second, based on `default.scss`, named `additional.scss`, allow you to do minor adaptions to gain the necessary changes. When left empty it will use the default `emptry.scss` file.
 
- **Syntax**
+**Syntax**
 
 ```
 $> ./script.sh [name of your additional scss file]
@@ -35,6 +35,7 @@ $> mv generate_quarto_presentation ~/bin/
 # Usage of the bash script `generate_quarto_presentation`
 
 `generate_quarto_presentation` generates the structure for a custom quarto presentation out of the box. This includes a custom style sheet and logo.
+
 **Syntax**
 
 ```
@@ -108,5 +109,5 @@ For more information on custom style sheets see [link](https://quarto.org/docs/p
 
 # Example Presentation
 
-An example can be found [here](https://tfoerst3r.github.io/generate_quarto_presentation/).
+An example can be found [here](https://tfoerst3r.github.io/generate_quarto_presentation/). Please use full screen mode, otherwise the sizing may be off (still an ongoing issue for me). Press `F` or `F11` for full screen when viewing the example.
 
