@@ -1,6 +1,6 @@
 # Introduction
 
-The main purpose of this repo is to generate an executable shell script which on the other hand generates a ready-to-use structure for a quarto presentations. The emphasis is on top-row presentations (PowerPoint-like). 
+The main purpose of this repo is to generate an executable shell script with which you can generate a ready-to-use base structure for a quarto presentations. The emphasis is on top-row presentations (PowerPoint-like). 
 
 The generated script is per default named `generate_quarto_presentation`. It will build a project structure including all the needed files.
 
@@ -49,7 +49,7 @@ $ generate_quarto_presentation
 $ tree
 .
 ├── a_literature
-├── b_images
+├── b_raw-data
 ├── c_slides
 │   ├── custom
 │   │   ├── fonts

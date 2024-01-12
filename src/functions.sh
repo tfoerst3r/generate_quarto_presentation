@@ -4,7 +4,7 @@ function base_structure(){
 
 mkdir \
     a_literature \
-    b_images \
+    b_raw-data \
     $folder_slides \
     d_orga
 echo "$readme_content" > README.md

@@ -90,6 +90,7 @@ $backgroundimagedir:'../../../../../custom/images/';
 
 %white {
     display: flex; /*flex;*/
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     background-color: white;
