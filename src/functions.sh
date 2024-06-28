@@ -26,8 +26,9 @@ mkdir -p \
   $images_folder
 convert -size 100x60 xc:none -fill "#002864" -draw "rectangle 0,0 100,20 rectangle 0,40 100,60" $images_folder/logo.png
 
-touch ref.bib
+touch reference.bib
 
+echo $titlepage > "$images_folder/titlepage.svg"
 echo "$quarto_scss_script" > "$theme_folder/$file_quarto_scss"
 echo "$quarto_scss_script_add" > "$theme_folder/$file_quarto_add_scss"
 

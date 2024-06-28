@@ -39,7 +39,7 @@ $footerpadding: 0.5rem;
 $footerheight: 3.1vh;
 
 /*-- Logo --*/
-$logo-top: 2.0vh;
+$logo-top: 3.0vh;
 
 /*-- Resulting Sizes --*/
 $max-slide-height: calc(100vh - $heightoffset - $offset-factor * $hrulerY - $footerheight - $presentation-h2-font-size);
@@ -130,6 +130,18 @@ $backgroundimagedir:'../../../../../custom/images/';
     min-height: $max-slide-height !important;
 }
 
+.backgrounds {
+    /*-- custom title layout --*/
+    .quarto-title-block {
+        @include backgroundimage('titlepage.svg');
+        /*
+        @include backgroundimage(
+            'logo_dresden-concept.svg', 
+            calc(100% - $rightpadding) calc(100% - 3.0 * $footerpadding - $footerheight), 12vw 
+        );
+        */
+    }
+}
 
 /*********************************************
  * Additional Settings for Default Envs.
@@ -219,7 +231,7 @@ h3::after {
     display: block !important;
     top: $logo-top !important;
     right: calc($indentdX/3) !important;
-    max-height: 9% !important;
+    max-height: 6% !important;
     width: auto !important;
     color: $body-bg !important;
     margin: 0 !important;

@@ -23,7 +23,7 @@ $body-bg: #ffffff;
     
     /*-- custom title layout --*/
     .quarto-title-block {
-        @include backgroundimage('logo_dresden-concept_1080p.svg');
+        @include backgroundimage('titlepage.svg');
     }
     /*
     .quarto-title-block {

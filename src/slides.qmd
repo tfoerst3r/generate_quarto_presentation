@@ -11,8 +11,6 @@ format:
     transition: none
     transition-speed: fast
     slide-number: c
-    width: 1920
-    heigth: 1080
     show-notes: false
     html-math-method: katex
     toc: false
@@ -23,7 +21,9 @@ format:
       buttons: false
     citation-hover: true
     footnote-hover: true
-bibliography: ./ref.bib
+width: 1920
+heigth: 1080
+bibliography: ./reference.bib
 logo: ./custom/images/logo.png
 footer: 'This is a footer'
 ---
